@@ -41,7 +41,7 @@
             </td>
             <td>
                 <a href="">Edit</a>
-                <form>
+                <form action="departments" method="post">
                     <input type="hidden" name="id" value="DELETE">
                     <input type="hidden" name="id" value="${d.id}">
                     <button>DELETE</button>
