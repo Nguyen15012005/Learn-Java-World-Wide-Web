@@ -1,7 +1,6 @@
 package iuh.fit.midterm01.repository.impl;
 
 import iuh.fit.midterm01.util.JpaUtil;
-import jakarta.persistence.Entity;
 import jakarta.persistence.EntityManager;
 
 /**
@@ -11,13 +10,14 @@ import jakarta.persistence.EntityManager;
  * @Class DHKTPM19ATT
  * @since 7/9/2026
  */
-public class GenericRepository<T> {
+public class GenericRepositoryImpl<T> implements iuh.fit.midterm01.repository.GenericRepository<T> {
     public Class<T> type;
 
-    public GenericRepository(Class<T> type) {
+    public GenericRepositoryImpl(Class<T> type) {
         this.type = type;
     }
 
+    @Override
     public void save(T entity) {
         EntityManager em = JpaUtil.getEmf().createEntityManager();
 
@@ -33,6 +33,7 @@ public class GenericRepository<T> {
         }
     }
 
+    @Override
     public void delete(Long id){
         EntityManager em = JpaUtil.getEmf().createEntityManager();
 
@@ -49,6 +50,7 @@ public class GenericRepository<T> {
         }
     }
 
+    @Override
     public T findById(Long id){
         EntityManager em = JpaUtil.getEmf().createEntityManager();
         try {

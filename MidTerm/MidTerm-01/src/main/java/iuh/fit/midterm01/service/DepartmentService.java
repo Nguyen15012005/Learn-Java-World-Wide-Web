@@ -17,4 +17,10 @@ public interface DepartmentService {
     List<Department> findByName(String deptName);
 
     void update(Long id, Department newDepartment);
+
+    void save(Department department);
+
+    void delete(Long id);
+
+    Department findById(Long id);
 }

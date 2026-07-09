@@ -1,6 +1,5 @@
 package iuh.fit.midterm01.controller;
 
-import iuh.fit.midterm01.repository.impl.DepartmentRepositoryImpl;
 import iuh.fit.midterm01.service.DepartmentService;
 import iuh.fit.midterm01.service.impl.DepartmentServiceImpl;
 import jakarta.servlet.ServletConfig;
@@ -33,14 +32,32 @@ public class DepartmentController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("departments", departmentService.findAll());
+
+        String name = req.getParameter("name");
+
+        if(name != null) {
+            req.setAttribute("departments", departmentService.findByName(name));
+        }
+        else {
+            req.setAttribute("departments", departmentService.findAll());
+        }
+
         req.getRequestDispatcher("/WEB-INF/department-list.jsp")
                 .forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
+        String action = req.getParameter("action");
+
+        if(action != null){
+            switch (action){
+                case "DELETE" -> {
+                    Long id = Long.parseLong(req.getParameter("id"));
+                    departmentService.delete(id);
+                }
+            }
+        }
     }
 
 }

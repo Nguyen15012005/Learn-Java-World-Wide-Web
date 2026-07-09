@@ -11,7 +11,7 @@ import java.util.List;
  * @Class DHKTPM19ATT
  * @since 7/9/2026
  */
-public interface DepartmentRepository {
+public interface DepartmentRepository extends GenericRepository<Department> {
     List<Department> findAll();
 
     List<Department> findByName(String deptName);

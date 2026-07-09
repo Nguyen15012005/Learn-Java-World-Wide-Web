@@ -14,7 +14,7 @@ import java.util.List;
  * @Class DHKTPM19ATT
  * @since 7/9/2026
  */
-public class DepartmentRepositoryImpl extends GenericRepository<Department> implements iuh.fit.midterm01.repository.DepartmentRepository {
+public class DepartmentRepositoryImpl extends GenericRepositoryImpl<Department> implements iuh.fit.midterm01.repository.DepartmentRepository {
 
     public DepartmentRepositoryImpl() {
         super(Department.class);

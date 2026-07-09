@@ -34,4 +34,19 @@ public class DepartmentServiceImpl implements iuh.fit.midterm01.service.Departme
     public void update(Long id, Department newDepartment){
         departmentRepository.update(id,newDepartment);
     }
+
+    @Override
+    public void save(Department department) {
+        departmentRepository.save(department);
+    }
+
+    @Override
+    public void delete(Long id) {
+        departmentRepository.delete(id);
+    }
+
+    @Override
+    public Department findById(Long id) {
+        return departmentRepository.findById(id);
+    }
 }
