@@ -1,4 +1,4 @@
-package iuh.fit.midterm01.model;
+package iuh.fit.midterm01.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
