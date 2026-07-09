@@ -27,13 +27,15 @@ public class DepartmentController extends HttpServlet {
 
     @Override
     public void init(ServletConfig config) throws ServletException {
+        super.init(config);
         departmentService = new DepartmentServiceImpl();
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setAttribute("departments", departmentService.findAll());
-        req.getRequestDispatcher("department-list.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/department-list.jsp")
+                .forward(req, resp);
     }
 
     @Override
