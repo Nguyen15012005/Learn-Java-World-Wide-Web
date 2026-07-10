@@ -55,7 +55,7 @@ public class DepartmentController extends HttpServlet {
                 case "DELETE" -> {
                     Long id = Long.parseLong(req.getParameter("id"));
                     departmentService.delete(id);
-                    resp.sendRedirect("departments");
+                    resp.sendRedirect("departments");// Cập nhập lại trang chủ
                 }
             }
         }
